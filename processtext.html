@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Process Text</title>
+</head>
+<body>
+
+<br>
+<div>
+    Write one or more sentences:<br>
+    <input id="words" style="width:300px">
+</div>
+<br>
+<button onclick="countWords()">Count Words</button>
+<br>
+<br>
+<div id="results">
+    Word Count:
+</div>
+
+<script type = "text/javascript">
+
+        function countWords() {
+
+            var input = document.getElementById("words").value;
+            var output = "";
+
+            input = input.toUpperCase();
+            input = input.replace(/\./g, "");
+            input = input.split(" ");
+
+            for (var i=0; i<input.length; i++) {
+
+                var current = input[i];
+                var wordCount = 0;
+
+                for (var j=0; j<input.length; j++) {
+
+                    if (input[j] == current && !output.includes(current)) {
+
+                        wordCount = wordCount + 1;
+
+                    }
+
+                }
+
+                if (!output.includes(current)) {
+
+                    output = output + current + " " + wordCount + " // ";
+
+                }
+            }
+
+            document.getElementById("results").innerHTML = output;
+        }
+
+</script>
+
+<div id="output">
+</div>
+
+</body>
+</html>
