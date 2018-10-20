@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Fun</title>
+</head>
+<body>
+
+<div id="numbers">
+
+    User Numbers:
+    <p id="inputNums"></p>
+
+</div>
+
+<div id="max">
+
+    Max Number:
+    <p id="maxNum"></p>
+
+</div>
+
+<div id="min">
+
+    Min Number:
+    <p id="minNum"></p>
+
+</div>
+
+<div id="mean">
+
+    Mean:
+    <p id="meanNum"></p>
+
+</div>
+
+<div id="median">
+
+    Median:
+    <p id="medNum"></p>
+
+</div>
+
+<div id="even">
+
+    Even Numbers:
+    <p id="evenNum"></p>
+
+</div>
+
+<div id="odd">
+
+    Odd Numbers:
+    <p id="oddNum"></p>
+
+</div>
+
+<div id="prime">
+
+    Prime Numbers:
+    <p id="primeNums"></p>
+
+</div>
+
+<div id="powerOf2">
+
+    Power of 2 Numbers:
+    <p id="pO2Nums"></p>
+
+</div>
+
+<script type = "text/javascript">
+
+    var userInput = "";
+    var nums = [];
+
+    do {
+
+        userInput = prompt("Enter a positive integer one at a time. Enter -1 when you're finished.");
+        nums.push(userInput);
+
+    } while (userInput != -1)
+
+    nums.pop();
+    nums.sort();
+    console.log(nums);
+    document.getElementById("inputNums").innerHTML = String(nums);
+
+    // finding max number
+
+    document.getElementById("maxNum").innerHTML = nums[nums.length - 1];
+
+    // finding min number
+
+    document.getElementById("minNum").innerHTML = nums[0];
+
+    // finding mean
+
+    var mean = 0;
+    var sum = 0;
+
+    for (var i = 0; i < nums.length; i++) {
+
+        sum = sum + Number(nums[i]);
+
+    }
+
+    mean = sum / nums.length;
+    document.getElementById("meanNum").innerHTML = String(mean);
+
+    // finding median
+
+    var mid = 0;
+    var median = 0;
+
+    if (nums.length % 2 != 0) {
+        mid = Math.floor(nums.length/2);
+        median = nums[mid];
+    } else if (nums.length % 2 == 0) {
+        var midSum = Number( nums[( nums.length / 2 ) - 1] ) + Number( nums[ (nums.length/2) ] );
+        median = midSum / 2;
+    }
+
+    document.getElementById("medNum").innerHTML = String(median);
+
+    // finding even numbers
+    // finding odd numbers
+
+    var even = 0;
+    var odd = 0;
+
+    for (var i=0; i<nums.length; i++) {
+
+        if (nums[i]%2 == 0) {
+            even += 1;
+        } else {
+            odd += 1;
+        }
+
+    }
+
+    document.getElementById("evenNum").innerHTML = String(even);
+    document.getElementById("oddNum").innerHTML = String(odd);
+
+    // finding prime numbers (couldn't figure this one out)
+
+
+
+    // finding power of 2 numbers (couldn't figure this one out)
+
+</script>
+
+</body>
+</html>
